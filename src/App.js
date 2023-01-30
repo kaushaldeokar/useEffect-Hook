@@ -3,7 +3,7 @@ import NavBar from "./component/NavBar";
 import React, { useState, useEffect } from "react";
 function App() {
   const [State, setState] = useState(2 );
-  const [data1, setData] = useState([]);
+  const [data, setData] = useState([]);
   function incre() {
     setState(State + 1);
   }
@@ -14,9 +14,9 @@ function App() {
     // window.alert("useEffect called");
      async function getData(){
       const get = await fetch('https://reqres.in/api/users?page=${State}');
-     const res=get.json();
+     const res=await get.json();
      setData(res);
-     console.log(data1);
+     console.log(res);
     }
     getData();
 
@@ -30,7 +30,7 @@ function App() {
         <button onClick={incre}> Increment </button>
         <button onClick={decre}> Decrement </button>
         {
-          // data1.map((e,ind)=>{
+          // data.map((e,ind)=>{
           //   return(
           //     <div>
           //       <h4>{e.first_name}</h4>
