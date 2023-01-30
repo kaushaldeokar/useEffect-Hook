@@ -20,7 +20,7 @@ function App() {
     }
     getData();
 
-  }, [State,data1]);
+  }, [State]);
   //array passed shows no dependencies
   return (
     <div className="App">
